@@ -1,0 +1,46 @@
+<div class="container-fluid mt-5 ">
+
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card shadow">
+                <form [formGroup]="newEntradaForm" (ngSubmit)="onSubmit()">
+                    <div class="m-5">
+                        <div class="container ">
+                            <h1 class="text-center ">Crear entrada</h1>
+
+                            <div class="mb-3 shadow-sm ">
+                                <label for="title" class="form-label"><b>Titulo</b></label>
+                                <input type="text" class="form-control input" id="title" name="title" placeholder="Titulo de la entrada" formControlName="title">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="description" class="form-label"><b>Descripción</b></label>
+                                <input type="text" class="form-control input" id="description" name="description" placeholder="Descripción de la entrada" formControlName="description">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="date" class="form-label"><b>Fecha de publicación</b></label>
+                                <input type="date" class="form-control input" id="date" name="date" placeholder="Fecha de la publicación" formControlName="date">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="author" class="form-label"><b>Autor</b></label>
+                                <input type="text" class="form-control input" id="author" name="author" placeholder="Autor de la entrada" formControlName="author">
+                            </div>
+
+                
+                            <div class="text-center">
+                                <button class="btn text-white" type="submit" >Guardar</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+.btn-derecha {
+    right: 0;
+    width: 160px;
+    height: 60px;
+    position: relative;
+    top: 50;
+    margin-left: 30px;
+    background-color: #6f1c73;
+  }
+
+  .titulo{
+    margin-right: auto;
+  }
+
+  .bi-search {
+    color: #8E44AD; 
+    height: 35px;
+  
+  }
+
+  
+  .search{
+    width: 400px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .search-icon {
+    left: 15px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+
+.subtitulo {
+  font-size: 0.8rem; // Tamaño de fuente más pequeño
+  display: block; // Mostrar en bloque para que aparezca debajo de la marca
+  overflow: hidden; // Ocultar cualquier desbordamiento de texto
+  white-space: nowrap; // Evitar que el texto se desborde en varias líneas
+  text-overflow: ellipsis; // Agregar puntos suspensivos si el texto es demasiado largo para ajustarse
+  color: inherit; // Heredar el color del texto del elemento padre (en este caso, el color del texto del navbar)
+  text-decoration: none; // Eliminar subrayado de los enlaces
+  color: #c4c4c4e5;
+}
+

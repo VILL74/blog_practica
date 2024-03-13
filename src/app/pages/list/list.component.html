@@ -1,0 +1,26 @@
+
+<div class="position-relative m-3">
+    <div class="card mb-4 shadow-sm ">
+        <br>
+        <div class="mx-3 mb-3 d-flex align-items-center ">
+            <p class="mb-0 ms-2">{{entrada.title}} </p>
+        </div>
+        <div class="mx-3 mb-3 d-flex align-items-center ">
+            <p class="mb-0 ms-2">{{entrada.description}}</p>
+        </div>
+        <div class="row ">
+            <div class="mx-3 mb-3 d-flex align-items-start">
+                <p class="mb-0 ms-2">{{entrada.author}}</p>
+            </div>
+            <div class="mx-3 mb-3 d-flex text-end ">
+                <p class="mb-0 ms-2">{{entrada.date}} </p>
+            </div>
+        </div>
+        
+    </div>
+    <div class="position-absolute options">
+        <i class="bi bi-pencil-square ms-3" (click)="editPublicacion(entrada)"></i>
+        <i class="bi bi-search ms-3"></i>
+    </div>
+</div>
+
