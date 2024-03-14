@@ -10,9 +10,17 @@ export class AlertService {
   data$: Observable<AlertInterface>= this.data.asObservable();
 
   constructor() { }
-  show(alert:AlertInterface):void{
+  
+  show(alert: AlertInterface): void {
     this.data.next(alert);
+    setTimeout(() => {
+      this.hide();
+    }, 5000);
   }
+  
+  //show(alert:AlertInterface):void{
+    //this.data.next(alert);
+  //}
 
   hide():void{
     this.data.next({message:'',show:false});

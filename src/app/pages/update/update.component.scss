@@ -11,3 +11,20 @@
 ::placeholder {
     font-weight: normal;
 }
+
+.options {
+    top: 15px;
+    i{
+        font-size: 30px;
+        cursor: pointer;
+    }
+}
+
+.options2 {
+    top: 15px;
+    right: 0;
+    i{
+        font-size: 30px;
+        cursor: pointer;
+    }
+}

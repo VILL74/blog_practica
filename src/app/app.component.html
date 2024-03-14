@@ -5,18 +5,19 @@
     <app-show></app-show>
 -->
 <div class="container-fluid">
-  <app-navbar (showFormCreateEntradas)="showFormCreate()" (buscarEntradas)="buscarEntradas($event)"></app-navbar>
+  <app-navbar  (buscarEntradas)="buscarEntradas($event)"></app-navbar>
   <app-alert></app-alert>
   <div class="row">
     <div class="col">
       <div class="row">
-        <div  *ngFor="let entrada of (mostrarEntradasOriginales ? entradas : entradasFiltradas)">
-          <app-list [entrada]="entrada" (emitEditEntrada)="editEntrada($event)"></app-list>
+        <div  *ngFor="let entrada of (mostrarEntradasOriginales ? entradas : entradasFiltradas) ">
+          <app-list [entrada]="entrada" (emitEditEntrada)="editEntrada($event) " *ngIf="Seelist$| async"></app-list>
         </div>
       </div>
     </div>
-    <app-create (addEntrada)="onAddEntrada($event)" *ngIf="create"></app-create>
-    <app-update [entrada]=entrada (updatedEntrada)="updateEntrada($event)" *ngIf="!create"></app-update>
+    <app-show [entrada]=entrada *ngIf="SeeEntraceVisible$| async"></app-show>
+    <app-create (addEntrada)="onAddEntrada($event)" *ngIf="createVisible$ | async"></app-create>
+    <app-update [entrada]=entrada (updatedEntrada)="updateEntrada($event)" *ngIf="EditVisible$| async" ></app-update>
   </div>
 </div>
 

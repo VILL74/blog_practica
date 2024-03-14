@@ -1,0 +1,17 @@
+.card{
+    min-height: 80vh;
+        background-color: white;
+        overflow: hidden;
+   
+}
+.card-content {
+    text-align: justify; 
+}
+
+.options {
+    top: 15px;
+    i{
+        font-size: 30px;
+        cursor: pointer;
+    }
+}

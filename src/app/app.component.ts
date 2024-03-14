@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Publicacion } from './publicacion';
-
+import { AppServiceService } from './app.service.service';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,15 +9,23 @@ import { Publicacion } from './publicacion';
 })
 export class AppComponent {
   title = 'blog';
-  create = true;
   mostrarEntradasOriginales: boolean = true;
   entradas: Publicacion [] = []
   entradasFiltradas: Publicacion[] = [];
   entrada: Publicacion = {} as Publicacion;
 
-  showFormCreate() {
-    this.create = true
+  createVisible$: Observable<boolean>;
+  EditVisible$:Observable<boolean>;
+  SeeEntraceVisible$: Observable<boolean>;
+  Seelist$: Observable<boolean>;
+
+  constructor(private visibilityService: AppServiceService) {
+    this.createVisible$ = this.visibilityService.getCreateVisibilityStream();
+    this.EditVisible$ = this.visibilityService.getUpdateVisibilityStream();
+    this.SeeEntraceVisible$ = this.visibilityService.getseeentraceVisibilityStream();
+    this.Seelist$ = this.visibilityService.getslistVisibilityStream();
   }
+
   
   
   onAddEntrada(newEntrada: Publicacion) {
@@ -25,7 +34,6 @@ export class AppComponent {
   }
 
   editEntrada(entrada: Publicacion) {
-    this.create = false;
     this.entrada=entrada;
   }
 
@@ -46,7 +54,7 @@ export class AppComponent {
         this.entradasFiltradas = this.entradas.filter(entrada =>
             entrada.title.toLowerCase().includes(criterioLower) ||
             entrada.description.toLowerCase().includes(criterioLower) ||
-            entrada.date||
+            entrada.date.toLowerCase().includes(criterioLower)||
             entrada.author.toLowerCase().includes(criterioLower)
         );
         // Cuando se realiza una búsqueda, oculta los héroes originales

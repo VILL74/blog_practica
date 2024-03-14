@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Publicacion } from '../../publicacion';
 import { AlertService } from '../../shared/components/alert/alert.service';
+import { AppServiceService } from '../../app.service.service';
 
 @Component({
   selector: 'app-update',
@@ -14,7 +15,7 @@ export class UpdateComponent {
 
   editEntradaForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,private alertservice:AlertService) {
+  constructor(private formBuilder: FormBuilder,private alertservice:AlertService,private visibilityService: AppServiceService) {
     this.editEntradaForm = this.formBuilder.group({
       title: [this.entrada.title, [Validators.required, Validators.minLength(4)]],
       description: [this.entrada.description, [Validators.required, Validators.minLength(4)]],
@@ -27,6 +28,11 @@ export class UpdateComponent {
   ngOnInit(): void {
     this.llenarFormularioConDatosActuales();
   }
+
+  recuperar() {
+    this.llenarFormularioConDatosActuales();
+  }
+  
 
   llenarFormularioConDatosActuales() {
     if (this.entrada) {
@@ -51,13 +57,22 @@ export class UpdateComponent {
       };
       this.updatedEntrada.emit(updatedInfo);
       this.resetEditEntrada();
+      this.alertservice.show({message:'Guardado correctamente',show:true,type:'success'})
+      this.verlista();
     }else{
-      this.alertservice.show({message:'Por favor,complete los campos requeridos',show:true})
+      this.alertservice.show({message:'Por favor,complete los campos requeridos',show:true,type:'danger'})
       console.log('El formulario no es válido');
     }
   }
 
   resetEditEntrada() {
     this.editEntradaForm.reset();
+  }
+
+  verlista()  {
+    this.visibilityService.toggleListVisibility(true);
+    this.visibilityService.toggleseeentraceVisibility(false);
+    this.visibilityService.toggleUpdateVisibility(false); 
+    this.visibilityService.toggleCreateVisibility(false);
   }
 }

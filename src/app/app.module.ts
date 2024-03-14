@@ -10,6 +10,7 @@ import { ShowComponent } from './pages/show/show.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlertComponent } from './shared/components/alert/alert.component';
+import { AppServiceService } from './app.service.service';
 
 @NgModule({
   declarations: [

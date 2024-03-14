@@ -1,10 +1,13 @@
+<br>
 <div class="container-fluid mt-5 ">
-
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
             <div class="card shadow">
                 <form [formGroup]="newEntradaForm" (ngSubmit)="onSubmit()">
+                    <div class="position-absolute options">
+                        <i class="bi bi-arrow-left-circle ms-3" (click)="verlista()"></i>
+                    </div>
                     <div class="m-5">
                         <div class="container ">
                             <h1 class="text-center ">Crear entrada</h1>

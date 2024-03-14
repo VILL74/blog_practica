@@ -1,24 +1,24 @@
-
-<div class="position-relative">
-    <div class="card mb-4">
-        <div class="card-header text-center">
-            <h3>Descripción</h3>
-          </div>
-          <br>
+<div class="container-fluid position-relative">
+    <div class="card mb-4 mt-4 ">
+        <div class="position-absolute options">
+            <i class="bi bi-arrow-left-circle ms-3" (click)="verlista()"></i>
+        </div>
+        <br>
+        <div class="mx-3 mt-5 mb-3 d-flex align-items-center ">
+            <b class="mb-0 ms-2">{{entrada.title.toString()|titlecase }} </b>
+        </div>
+        <br>
         <div class="mx-3 mb-3 d-flex align-items-center ">
-            <p class="mb-0 ms-2">Titulo: </p>
+            <p class="mb-0 ms-2">{{entrada.description.toString()| lowercase }}</p>
         </div>
-        <div class="mx-3 mb-3 d-flex align-items-center ">
-            <p class="mb-0 ms-2">Descripcion: </p>
-        </div>
-        <div class="row ">
-            <div class="mx-3 mb-3 d-flex align-items-end">
-                <p class="mb-0 ms-2">Autor: </p>
+        <br>
+        <div class="row flex-grow-1 ">
+            <div class="col-5  ms-4 d-flex align-items-end">
+                <p>Author: {{entrada.author.toString()| titlecase }} </p>
             </div>
-            <div class="mx-3 mb-3 d-flex text-start">
-                <p class="mb-0 ms-2">Fecha: </p>
+            <div class="col-6 d-flex justify-content-end align-items-end ms-4">
+                <p> {{ entrada.date.toString()| date:'dd-MM-yyyy'}} </p>
             </div>
         </div>
-        
     </div>
 </div>

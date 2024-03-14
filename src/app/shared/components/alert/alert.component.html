@@ -1,5 +1,5 @@
-<ng-container *ngIf="alert.show">
-    <div class="alert alert-danger" role="alert">
+<ng-container *ngIf="alert.show" >
+    <div class="alert alert-{{alert.type}} position-absolute text-center container-fluid" role="alert" style="z-index: 9999">
         <!-- alert alert-warning alert-dismissible fade show -->
      {{alert.message}}
         <button type="button" class="btn-close " data-bs-dismiss="alert" aria-label="close" (click)="hide()">
@@ -7,5 +7,7 @@
         </button>
     </div>
 </ng-container>
+
+
 
 

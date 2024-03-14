@@ -3,24 +3,23 @@
     <div class="card mb-4 shadow-sm ">
         <br>
         <div class="mx-3 mb-3 d-flex align-items-center ">
-            <p class="mb-0 ms-2">{{entrada.title}} </p>
+            <b class="mb-0 ms-2">{{entrada.title.toString()|titlecase }} </b>
         </div>
         <div class="mx-3 mb-3 d-flex align-items-center ">
-            <p class="mb-0 ms-2">{{entrada.description}}</p>
+            <p class="mb-0 ms-2">{{entrada.description.toString()| lowercase }}</p>
         </div>
         <div class="row ">
-            <div class="mx-3 mb-3 d-flex align-items-start">
-                <p class="mb-0 ms-2">{{entrada.author}}</p>
+            <div class="col-5  ms-4 d-flex align-items-end">
+                <p class=" ">Author: {{entrada.author.toString()| titlecase }} </p>
             </div>
-            <div class="mx-3 mb-3 d-flex text-end ">
-                <p class="mb-0 ms-2">{{entrada.date}} </p>
+            <div class="col-6 d-flex justify-content-end align-items-end ms-5">
+                <p class=""> {{ entrada.date.toString()| date:'dd-MM-yyyy'}} </p>
             </div>
         </div>
-        
     </div>
     <div class="position-absolute options">
         <i class="bi bi-pencil-square ms-3" (click)="editPublicacion(entrada)"></i>
-        <i class="bi bi-search ms-3"></i>
+        <i class="bi bi-search ms-3" (click)="verpublicacion(entrada)"></i>
     </div>
 </div>
 
